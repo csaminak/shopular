@@ -1,4 +1,4 @@
-h1 {
+h1, .contact {
   text-align: center; }
 
 main {
@@ -10,5 +10,10 @@ main {
 
 .sale {
   vertical-align: middle; }
+
+.contact ul {
+  padding: 0; }
+.contact li {
+  list-style: none; }
 
 /*# sourceMappingURL=styles.css.map */
