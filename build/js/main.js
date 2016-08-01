@@ -7,8 +7,9 @@
 
 (function() {
     'use strict';
-
-    angular.module('shopular', ShopularController);
+    
+    angular.module('shopular')
+        .controller('ShopularController', ShopularController);
 
     function ShopularController() {
         this.tax = 0.0575;
