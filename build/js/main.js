@@ -7,7 +7,7 @@
 
 (function() {
     'use strict';
-    
+
     angular.module('shopular')
         .controller('ShopularController', ShopularController);
 
