@@ -1,6 +1,11 @@
-table {
+h1 {
+    text-align: center;
+}
+main {
+    margin: auto $tableMargin;
+}
+.inventory {
     width: $tableWidth;
-    margin: 0 auto;
     text-align: center;
 }
 

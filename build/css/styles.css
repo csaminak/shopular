@@ -1,6 +1,11 @@
-table {
+h1 {
+  text-align: center; }
+
+main {
+  margin: auto 10%; }
+
+.inventory {
   width: 80%;
-  margin: 0 auto;
   text-align: center; }
 
 .sale {
