@@ -37,10 +37,10 @@
                 <tbody>
                     <tr ng-repeat='item in shopular.inventory'>
                         <td>
+                            <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                             {{item.name}}
                         </td>
                         <td>
-                            <img ng-class='{sale: item.discount > 0}' src='images/sale.png'>
                             {{(item.price - item.discount) * (1 + shopular.tax) | currency: '$'}}
                         </td>
                         <td>
