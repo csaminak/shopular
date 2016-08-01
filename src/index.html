@@ -2,11 +2,55 @@
 <html lang='en' ng-app='shopular'>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Shopular</title>
     </head>
     <body>
 
+        <header>
+            <h1>Shopular Store Inventory</h1>
+        </header>
+
+        <main>
+            <table ng-controller='ShopularController as shopular'>
+                <thead>
+                    <tr>
+                        <th>
+                            Item
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Color
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='item in shopular.inventory'>
+                        <td>
+                            {{item.name}}
+                        </td>
+                        <td>
+                            {{item.price}}
+                        </td>
+                        <td>
+                            {{item.quantity}}
+                        </td>
+                        <td>
+                            {{item.color}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <footer>
+        </footer>
+
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
-        <script src='main.js'></script>
+        <script src='js/main.js'></script>
     </body>
 </html>
