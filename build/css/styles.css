@@ -1,19 +1,33 @@
 h1, .contact {
-  text-align: center; }
-
-main {
-  margin: auto 10%; }
+  text-align: center;
+  color: #5e5567; }
 
 .inventory {
+  margin: auto 10%;
   width: 80%;
   text-align: center; }
 
-.sale {
-  vertical-align: middle; }
-
+.contact h4 {
+  margin-bottom: 0; }
 .contact ul {
   padding: 0; }
 .contact li {
   list-style: none; }
+
+thead {
+  background-color: #9d93a8;
+  font-size: 1.5em;
+  font-weight: bold; }
+
+tbody tr:nth-child(odd) {
+  background-color: #b5bfeb; }
+tbody tr:nth-child(even) {
+  background-color: #f1daff; }
+
+.itemName {
+  font-weight: bold; }
+
+.sale {
+  float: left; }
 
 /*# sourceMappingURL=styles.css.map */

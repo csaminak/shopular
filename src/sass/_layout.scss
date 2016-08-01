@@ -1,23 +1,43 @@
 h1, .contact {
     text-align: center;
-}
-main {
-    margin: auto $tableMargin;
+    color: $themeFontColor;
 }
 .inventory {
+    margin: auto $tableMargin;
     width: $tableWidth;
     text-align: center;
 }
 
-.sale {
-    vertical-align: middle;
-}
-
 .contact {
+    h4 {
+        margin-bottom: 0;
+    }
     ul {
         padding: 0;
     }
     li {
         list-style: none;
     }
+}
+
+thead {
+    background-color: $tableHeadColor;
+    font-size: $InventoryHeadSize;
+    font-weight: bold;
+}
+tbody {
+    tr:nth-child(odd) {
+        background-color: $zebraColor1;
+    }
+    tr:nth-child(even) {
+        background-color: $zebraColor2;
+    }
+}
+
+.itemName {
+    font-weight: bold;
+}
+
+.sale {
+    float: left;
 }
