@@ -1,7 +1,7 @@
 {
   "name": "shopular",
   "version": "1.0.0",
-  "description": "",
+  "description": "You have a shop with some items in its inventory. The shop owner has asked that you create an interface to edit that inventory. The data you should start with is in a gist (link in this sentence). You must create all of the pieces of this application (HTML, Sass, JS) and should submit your GitHub repository for the project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,16 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0"
-  }
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csaminak/shopular.git"
+  },
+  "bugs": {
+    "url": "https://github.com/csaminak/shopular/issues"
+  },
+  "homepage": "https://github.com/csaminak/shopular#readme"
 }
