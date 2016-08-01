@@ -40,6 +40,7 @@
                             {{item.name}}
                         </td>
                         <td>
+                            <img ng-class='{sale: item.discount > 0}' src='images/sale.png'>
                             {{(item.price - item.discount) * (1 + shopular.tax) | currency: '$'}}
                         </td>
                         <td>
