@@ -1,4 +1,4 @@
-h1, .contact {
+h1, main, footer {
   text-align: center;
   color: #5e5567; }
 
@@ -16,7 +16,7 @@ h1, .contact {
 
 thead {
   background-color: #9d93a8;
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: bold; }
 
 tbody tr:nth-child(odd) {
