@@ -16,27 +16,27 @@
             <h1>Shopular Store Inventory</h1>
         </header>
 
-        <main ng-controller='ShopController as shop'>
+        <main ng-controller='InventoryController as stock'>
             <form>
                 <div>
-                    <label>Item Name</label>
-                    <input>
+                    <label for='itemName'>Item Name</label>
+                    <input id='itemName' type='text' name='itemName'>
                 </div>
                 <div>
-                    <label>Item Price</label>
-                    <input>
+                    <label for='itemPrice'>Item Price</label>
+                    <input id='itemPrice' type='text' name='itemPrice'>
                 </div>
                 <div>
-                    <label>Item Quantity</label>
-                    <input>
+                    <label for='itemDiscount'>Item Discount</label>
+                    <input id='itemDiscount' type='text' name='itemDiscount'>
                 </div>
                 <div>
-                    <label>Item Color</label>
-                    <input>
+                    <label for='itemQuantity'>Item Quantity</label>
+                    <input id='itemQuantity' type='text' name='itemQuantity'>
                 </div>
                 <div>
-                    <label>Item Discount</label>
-                    <input>
+                    <label for='itemColor'>Item Color</label>
+                    <input id='itemColor' type='text' name='itemColor'>
                 </div>
             </form>
             <table class='inventory'>
@@ -57,13 +57,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='item in shop.inventory'>
+                    <tr ng-repeat='item in stock.inventory'>
                         <td class='itemName'>
                             <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                             {{item.name}}
                         </td>
                         <td>
-                            {{shop.totalPrice(item) | currency: '$'}}
+                            {{stock.totalPrice(item) | currency: '$'}}
                         </td>
                         <td>
                             {{item.quantity}}
