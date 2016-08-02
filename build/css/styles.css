@@ -10,6 +10,12 @@ h1, main, footer {
 .contact li {
   list-style: none; }
 
+input.ng-touched.ng-invalid {
+  background-color: #ff4d4d; }
+
+label {
+  font-weight: bold; }
+
 thead {
   background-color: #9d93a8;
   font-size: 1.25em;
