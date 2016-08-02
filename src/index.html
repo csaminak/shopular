@@ -75,7 +75,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='item in stock.inventory'>
+                        <tr ng-repeat='item in stock.inventory | orderBy: stock.totalPrice'>
                             <td class='itemName'>
                                 <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                                 {{item.name}}
