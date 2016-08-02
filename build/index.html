@@ -23,15 +23,19 @@
                     <input>
                 </div>
                 <div>
-                    <label>Item Name</label>
+                    <label>Item Price</label>
                     <input>
                 </div>
                 <div>
-                    <label>Item Name</label>
+                    <label>Item Quantity</label>
                     <input>
                 </div>
                 <div>
-                    <label>Item Name</label>
+                    <label>Item Color</label>
+                    <input>
+                </div>
+                <div>
+                    <label>Item Discount</label>
                     <input>
                 </div>
             </form>
@@ -59,7 +63,7 @@
                             {{item.name}}
                         </td>
                         <td>
-                            {{(item.price - item.discount) * (1 + shop.tax) | currency: '$'}}
+                            {{shop.totalPrice(item) | currency: '$'}}
                         </td>
                         <td>
                             {{item.quantity}}
