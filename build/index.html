@@ -16,8 +16,26 @@
             <h1>Shopular Store Inventory</h1>
         </header>
 
-        <main>
-            <table class='inventory' ng-controller='ShopularController as shopular'>
+        <main ng-controller='ShopController as shop'>
+            <form>
+                <div>
+                    <label>Item Name</label>
+                    <input>
+                </div>
+                <div>
+                    <label>Item Name</label>
+                    <input>
+                </div>
+                <div>
+                    <label>Item Name</label>
+                    <input>
+                </div>
+                <div>
+                    <label>Item Name</label>
+                    <input>
+                </div>
+            </form>
+            <table class='inventory'>
                 <thead>
                     <tr>
                         <th>
@@ -35,13 +53,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='item in shopular.inventory'>
+                    <tr ng-repeat='item in shop.inventory'>
                         <td class='itemName'>
                             <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                             {{item.name}}
                         </td>
                         <td>
-                            {{(item.price - item.discount) * (1 + shopular.tax) | currency: '$'}}
+                            {{(item.price - item.discount) * (1 + shop.tax) | currency: '$'}}
                         </td>
                         <td>
                             {{item.quantity}}

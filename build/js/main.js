@@ -9,7 +9,7 @@
     'use strict';
 
     angular.module('shopular')
-        .controller('ShopularController', ShopularController);
+        .controller('ShopController', ShopController);
 
     var inventory = [
         { 'id': 2957, 'name': 'widget', 'price': 32, 'quantity': 203,
@@ -38,9 +38,8 @@
                                                 'color': 'black', 'discount': 12 }
     ];
 
-    function ShopularController() {
+    function ShopController() {
         this.tax = 0.0575;
-
         this.inventory = inventory;
     }
 
