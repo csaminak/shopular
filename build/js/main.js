@@ -9,7 +9,7 @@
     'use strict';
 
     angular.module('shopular')
-        .controller('ShopController', ShopController);
+        .controller('InventoryController', InventoryController);
 
 
     var inventory = [
@@ -54,7 +54,7 @@
     /**
      * A constructor function that creates scope for various properties.
      */
-    function ShopController() {
+    function InventoryController() {
         this.inventory = inventory;
         this.totalPrice = totalPrice;
     }
