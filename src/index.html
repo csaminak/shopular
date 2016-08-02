@@ -21,27 +21,36 @@
                 <h2>Add New Item</h2>
                 <div>
                     <label for='itemName'>Name</label>
-                    <p ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>Please enter the item name to add to inventory</p>
-                    <input id='itemName' type='text' name='itemName' placeholder='Item Name' required ng-model='stock.newItem.name'>
+                    <p ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
+                        Please enter the item name to add to inventory
+                    </p>
+                    <input id='itemName' type='text' name='itemName' placeholder='Item Name'
+                                        required ng-model='stock.newItem.name'>
                 </div>
                 <div>
                     <label for='itemPrice'>Price</label>
                     <p ng-show='addItem.itemPrice < 0'>Item price cannot be less than $0.</p>
-                    <input id='itemPrice' type='number' name='itemPrice' placeholder='Item Price' min='0' ng-model='stock.newItem.price'>
+                    <input id='itemPrice' type='number' name='itemPrice' placeholder='Item Price'
+                                        min='0' ng-model='stock.newItem.price'>
                 </div>
                 <div>
                     <label for='itemDiscount'>Discount</label>
                     <p ng-show='addItem.itemDiscount < 0'>Item discount cannot be less than $0.</p>
-                    <input id='itemDiscount' type='number' name='itemDiscount' placeholder='Item Discount' min='0' ng-model='stock.newItem.discount'>
+                    <input id='itemDiscount' type='number' name='itemDiscount' placeholder='Item Discount'
+                                        min='0' ng-model='stock.newItem.discount'>
                 </div>
                 <div>
                     <label for='itemQuantity'>Quantity</label>
-                    <p ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>Item quantity must be at least 1 item</p>
-                    <input id='itemQuantity' type='number' name='itemQuantity' placeholder='Item Quantity' min='1' required ng-model='stock.newItem.quantity'>
+                    <p ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>
+                        Item quantity must be at least 1 item
+                    </p>
+                    <input id='itemQuantity' type='number' name='itemQuantity' placeholder='Item Quantity'
+                                        min='1' required ng-model='stock.newItem.quantity'>
                 </div>
                 <div>
                     <label for='itemColor'>Color</label>
-                    <input id='itemColor' type='text' name='itemColor' placeholder='Item Color' ng-model='stock.newItem.color'>
+                    <input id='itemColor' type='text' name='itemColor' placeholder='Item Color'
+                                        ng-model='stock.newItem.color'>
                 </div>
                 <input type='submit' value='Add Item'>
             </form>
