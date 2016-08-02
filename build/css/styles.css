@@ -1,14 +1,10 @@
+[ng-cloak], .ng-cloak {
+  display: none; }
+
 h1, main, footer {
   text-align: center;
   color: #5e5567; }
 
-.inventory {
-  margin: auto 10%;
-  width: 80%;
-  text-align: center; }
-
-.contact h4 {
-  margin-bottom: 0; }
 .contact ul {
   padding: 0; }
 .contact li {
@@ -23,6 +19,11 @@ tbody tr:nth-child(odd) {
   background-color: #b5bfeb; }
 tbody tr:nth-child(even) {
   background-color: #f1daff; }
+
+.inventory {
+  margin: auto 10%;
+  width: 80%;
+  text-align: center; }
 
 .itemName {
   font-weight: bold; }
