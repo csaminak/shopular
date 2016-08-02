@@ -4,6 +4,7 @@
     angular.module('shopular')
         .controller('ShopController', ShopController);
 
+
     var inventory = [
         { 'id': 2957, 'name': 'widget', 'price': 32, 'quantity': 203,
                                                 'color': 'red', 'discount': 31 },
@@ -31,9 +32,24 @@
                                                 'color': 'black', 'discount': 12 }
     ];
 
+    var tax = 0.0575;
+
+    /**
+     * Calculates the total price for an individual item.
+     * @param  {Object}     item    contains data about item
+     * @return {Number}             item price
+     */
+    function totalPrice(item) {
+        return (item.price - item.discount) * (1 + tax);
+    }
+
+
+    /**
+     * A constructor function that creates scope for various properties.
+     */
     function ShopController() {
-        this.tax = 0.0575;
         this.inventory = inventory;
+        this.totalPrice = totalPrice;
     }
 
 })();
