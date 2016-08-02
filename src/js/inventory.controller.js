@@ -45,11 +45,36 @@
 
 
     /**
-     * A constructor function that creates scope for various properties.
+     * A constructor function that creates a scope with various properties.
      */
     function InventoryController() {
+        var that = this;
         this.inventory = inventory;
         this.totalPrice = totalPrice;
+        this.newItem = {};
+
+        /**
+         * Adds a new item to inventory
+         * @param  {Object}     item    contains details relevant to the inventory
+         * @return {Object}
+         */
+        this.addItem = function addItem(item) {
+            if(!item || !item.name || !item.quantity) {
+                return null;
+            }
+            if(!item.price) {
+                item.price = 0;
+            }
+            if(!item.discount) {
+                item.discount = 0;
+            }
+            if(!item.color) {
+                item.color = 'n/a';
+            }
+            inventory.push(item);
+            that.newItem = {};
+            return item;
+        };
     }
 
 })();
