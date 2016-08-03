@@ -16,7 +16,7 @@
             <h1>Shopular Store Inventory</h1>
         </header>
 
-        <main ng-controller='InventoryController as stock'>
+        <main ng-cloak ng-controller='InventoryController as stock'>
             <form name='addItem' ng-submit='stock.addItem(stock.newItem)' novalidate>
                 <h2>Add New Item</h2>
                 <div>
@@ -57,25 +57,17 @@
 
             <section>
                 <h2>Inventory List</h2>
-                <table ng-cloak class='inventory'>
+                <table class='inventory'>
                     <thead>
                         <tr>
-                            <th>
-                                Item
-                            </th>
-                            <th>
-                                Price
-                            </th>
-                            <th>
-                                Quantity
-                            </th>
-                            <th>
-                                Color
-                            </th>
+                            <th ng-click='orderByField="name"; reverseSort = !reverseSort'>Item</th>
+                            <th ng-click='orderByField="price"; reverseSort = !reverseSort'>Price</th>
+                            <th ng-click='orderByField="quantity"; reverseSort = !reverseSort'>Quantity</th>
+                            <th ng-click='orderByField="color"; reverseSort = !reverseSort'>Color</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='item in stock.inventory | orderBy: stock.totalPrice'>
+                        <tr ng-repeat='item in stock.inventory | orderBy: orderByField:reverseSort'>
                             <td class='itemName'>
                                 <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                                 {{item.name}}
