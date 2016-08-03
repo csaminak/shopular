@@ -65,9 +65,9 @@
                 <table class='inventory'>
                     <thead>
                         <tr>
-                            <th ng-click='stock.sortType = "name"; stock.sortReverse = !stock.sortReverse'>Item</th>
-                            <th ng-click='stock.sortType = "price"'>Price</th>
-                            <th ng-click='stock.sortType = "quantity"'>Quantity</th>
+                            <th ng-click='stock.changeSorting("name")'>Item</th>
+                            <th ng-click='tock.changeSorting("price - discount")'>Price</th>
+                            <th ng-click='stock.changeSorting("quantity")'>Quantity</th>
                             <th>Color</th>
                         </tr>
                     </thead>

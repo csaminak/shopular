@@ -17,7 +17,7 @@
         </header>
 
         <main ng-cloak ng-controller='InventoryController as stock'>
-            <form name='addItem' ng-submit='stock.addItem(stock.newItem)' novalidate>
+            <form name='addItem' ng-submit='addItem.$valid && stock.addItem(stock.newItem)' novalidate>
                 <h2>Add New Item</h2>
                 <div>
                     <label for='itemName'>Name</label>
@@ -29,9 +29,14 @@
                 </div>
                 <div>
                     <label for='itemPrice'>Price</label>
-                    <p ng-show='addItem.itemPrice < 0'>Item price cannot be less than $0.</p>
-                    <input id='itemPrice' type='number' name='itemPrice' placeholder='Item Price'
-                                        min='0' ng-model='stock.newItem.price'>
+
+                    <div ng-show='addItem.itemPrice.$touched && !addItem.itemPrice.$valid'>
+                        <p ng-show='addItem.itemPrice.$error.min'>Item price cannot be less than $0.</p>
+                        <p ng-show='addItem.itemPrice.$error.required'>Item price is required.</p>
+                    </div>
+
+                    <input type='number' id='itemPrice' name='itemPrice' placeholder='Item Price'
+                                        required min='0' ng-model='stock.newItem.price'>
                 </div>
                 <div>
                     <label for='itemDiscount'>Discount</label>
@@ -60,16 +65,16 @@
                 <table class='inventory'>
                     <thead>
                         <tr>
-                            <th ng-click='sortBy("name")'>Item</th>
-                            <th ng-click='sortBy("price")'>Price</th>
-                            <th ng-click='sortBy("quantity")'>Quantity</th>
+                            <th ng-click='stock.changeSorting("name")'>Item</th>
+                            <th ng-click='tock.changeSorting("price - discount")'>Price</th>
+                            <th ng-click='stock.changeSorting("quantity")'>Quantity</th>
                             <th>Color</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='item in stock.inventory | orderBy: stock.totalPrice'>
-                            <td class='itemName'>
-                                <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
+                        <tr ng-repeat='item in stock.inventory | orderBy: stock.sortType:stock.sortReverse'>
+                            <td ng-class='{itemName: true, sale: item.discount > 0}'>
+                                <img ng-show='item.discount > 0' src='images/sale.png'>
                                 {{item.name}}
                             </td>
                             <td>
