@@ -35,6 +35,8 @@ tbody tr:nth-child(even) {
   font-weight: bold; }
 
 .sale {
-  float: left; }
+  background: url(../images/sale.png);
+  background-repeat: no-repeat;
+  background-size: contain; }
 
 /*# sourceMappingURL=styles.css.map */
