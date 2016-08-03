@@ -20,13 +20,12 @@
         };
     }
 
-    var nextId = 1;
+    var nextId = 17457;
 
     var inventory;
 
     function findAll() {
         inventory = JSON.parse(localStorage.getItem('inventory'));
-        console.log(inventory);
         return inventory;
     }
 
@@ -60,7 +59,7 @@
         };
         nextId++;
         inventory.push(newItem);
-        localStorage.setItem('inventory', JSON.stringify(inventory));
+        localStorage.setItem('inventory', angular.toJson(inventory));
         return newItem;
     }
 
@@ -85,17 +84,15 @@
     /**
      * A constructor function that creates a scope with various properties.
      */
-    function InventoryController(HandleInventoryService) {
+    function InventoryController(handleInventory) {
         var that = this;
         this.changeSorting = changeSorting;
         this.sortType = 'price - discount';
         this.sortReverse = false;
         this.totalPrice = totalPrice;
-        this.inventory = HandleInventoryService.findAll();
+        this.inventory = handleInventory.findAll();
         this.newItem = {};
-        this.addItem = function addItem(item) {
-            return HandleInventoryService.addItem(item);
-        };
+        this.addItem = handleInventory.addItem;
 
 
         /**

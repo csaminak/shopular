@@ -13,13 +13,12 @@
         };
     }
 
-    var nextId = 1;
+    var nextId = 17457;
 
     var inventory;
 
     function findAll() {
         inventory = JSON.parse(localStorage.getItem('inventory'));
-        console.log(inventory);
         return inventory;
     }
 
@@ -53,7 +52,7 @@
         };
         nextId++;
         inventory.push(newItem);
-        localStorage.setItem('inventory', JSON.stringify(inventory));
+        localStorage.setItem('inventory', angular.toJson(inventory));
         return newItem;
     }
 
