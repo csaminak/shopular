@@ -9,17 +9,15 @@
     /**
      * A constructor function that creates a scope with various properties.
      */
-    function InventoryController(HandleInventoryService) {
+    function InventoryController(handleInventory) {
         var that = this;
         this.changeSorting = changeSorting;
         this.sortType = 'price - discount';
         this.sortReverse = false;
         this.totalPrice = totalPrice;
-        this.inventory = HandleInventoryService.findAll();
+        this.inventory = handleInventory.findAll();
         this.newItem = {};
-        this.addItem = function addItem(item) {
-            return HandleInventoryService.addItem(item);
-        };
+        this.addItem = handleInventory.addItem;
 
 
         /**
