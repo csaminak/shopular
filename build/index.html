@@ -17,46 +17,61 @@
         </header>
 
         <main ng-cloak ng-controller='InventoryController as stock'>
+
             <form name='addItem' ng-submit='addItem.$valid && stock.addItem(stock.newItem)' novalidate>
-                <h2>Add New Item</h2>
-                <div>
-                    <label for='itemName'>Name</label>
+                <h2>Add New Item to Inventory</h2>
+
+                <section class='invalidInputMsgs'>
                     <p ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
                         Please enter the item name to add to inventory
                     </p>
-                    <input id='itemName' type='text' name='itemName' placeholder='Item Name'
-                                        required ng-model='stock.newItem.name'>
-                </div>
-                <div>
-                    <label for='itemPrice'>Price</label>
-
                     <div ng-show='addItem.itemPrice.$touched && !addItem.itemPrice.$valid'>
-                        <p ng-show='addItem.itemPrice.$error.min'>Item price cannot be less than $0.</p>
-                        <p ng-show='addItem.itemPrice.$error.required'>Item price is required.</p>
+                        <p ng-show='addItem.itemPrice.$error.min'>
+                            Item price cannot be less than $0.
+                        </p>
+                        <p ng-show='addItem.itemPrice.$error.required'>
+                            Must input an item's price.
+                        </p>
                     </div>
-
-                    <input type='number' id='itemPrice' name='itemPrice' placeholder='Item Price'
-                                        required min='0' ng-model='stock.newItem.price'>
-                </div>
-                <div>
-                    <label for='itemDiscount'>Discount</label>
-                    <p ng-show='addItem.itemDiscount < 0'>Item discount cannot be less than $0.</p>
-                    <input id='itemDiscount' type='number' name='itemDiscount' placeholder='Item Discount'
-                                        min='0' ng-model='stock.newItem.discount'>
-                </div>
-                <div>
-                    <label for='itemQuantity'>Quantity</label>
-                    <p ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>
-                        Item quantity must be at least 1 item
+                    <p ng-show='addItem.itemDiscount.$error.min'>
+                        Item discount cannot be less than $0.
                     </p>
-                    <input id='itemQuantity' type='number' name='itemQuantity' placeholder='Item Quantity'
-                                        min='1' required ng-model='stock.newItem.quantity'>
+                    <div ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>
+                        <p ng-show='addItem.itemQuantity.$error.min'>
+                            Item quantity cannot be less than 0.
+                        </p>
+                        <p ng-show='addItem.itemQuantity.$error.required'>
+                            Must input an item's quantity.
+                        </p>
+                    </div>
+                </section>
+
+                <div class='itemProperty'>
+                    <label for='itemName'>Name</label>
+                    <input id='itemName' name='itemName' placeholder='Item Name'
+                                        type='text' required ng-model='stock.newItem.name'>
                 </div>
-                <div>
+                <div class='itemProperty'>
+                    <label for='itemPrice'>Price</label>
+                    <input id='itemPrice' name='itemPrice' placeholder='Item Price' type='number'
+                                                        required min='0' ng-model='stock.newItem.price'>
+                </div>
+                <div class='itemProperty'>
+                    <label for='itemDiscount'>Discount</label>
+                    <input id='itemDiscount' name='itemDiscount' placeholder='Item Discount' type='number'
+                                                        min='0' ng-model='stock.newItem.discount'>
+                </div>
+                <div class='itemProperty'>
+                    <label for='itemQuantity'>Quantity</label>
+                    <input id='itemQuantity' name='itemQuantity' placeholder='Item Quantity' type='number'
+                                                        required min='0' ng-model='stock.newItem.quantity'>
+                </div>
+                <div class='itemProperty'>
                     <label for='itemColor'>Color</label>
                     <input id='itemColor' type='text' name='itemColor' placeholder='Item Color'
-                                        ng-model='stock.newItem.color'>
+                                                        ng-model='stock.newItem.color'>
                 </div>
+
                 <input type='submit' value='Add Item'>
             </form>
 
@@ -66,7 +81,7 @@
                     <thead>
                         <tr>
                             <th ng-click='stock.changeSorting("name")'>Item</th>
-                            <th ng-click='tock.changeSorting("price - discount")'>Price</th>
+                            <th ng-click='stock.changeSorting("price - discount")'>Price</th>
                             <th ng-click='stock.changeSorting("quantity")'>Quantity</th>
                             <th>Color</th>
                         </tr>
@@ -90,6 +105,7 @@
                     </tbody>
                 </table>
             </section>
+
         </main>
 
         <footer class='contact'>
