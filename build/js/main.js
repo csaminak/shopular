@@ -64,6 +64,12 @@
         this.sortType = 'price - discount';
         this.sortReverse = false;
 
+        /**
+         * Accepts a sorting type string and sets the sortType to that value
+         * and then sets sortReverse to be the opposite of what it was previously.
+         * @param  {String}     sortType        Property name for sorting type
+         * @return {Boolean}    sortReverse     Boolean value       
+         */
         function changeSorting(sortType) {
             that.sortType = sortType;
             that.sortReverse = !that.sortReverse;
@@ -76,11 +82,11 @@
          * @return {Object}
          */
         function addItem(item) {
-            if(!item || !item.name || !item.quantity) {
+            if(!item || !item.name || !item.price) {
                 return null;
             }
-            if(!item.price) {
-                item.price = 0;
+            if(!item.quantity) {
+                item.quantity = 0;
             }
             if(!item.discount) {
                 item.discount = 0;
