@@ -57,16 +57,25 @@
         var that = this;
         this.inventory = inventory;
         this.totalPrice = totalPrice;
-        this.sortType = 'price';
-        this.sortReverse = false;
         this.newItem = {};
+        this.addItem = addItem;
+        this.changeSorting = changeSorting;
+
+        this.sortType = 'price - discount';
+        this.sortReverse = false;
+
+        function changeSorting(sortType) {
+            that.sortType = sortType;
+            that.sortReverse = !that.sortReverse;
+            return that.sortReverse;
+        }
 
         /**
          * Adds a new item to inventory
          * @param  {Object}     item    contains details relevant to the inventory
          * @return {Object}
          */
-        this.addItem = function addItem(item) {
+        function addItem(item) {
             if(!item || !item.name || !item.quantity) {
                 return null;
             }
@@ -82,7 +91,7 @@
             inventory.push(item);
             that.newItem = {};
             return item;
-        };
+        }
 
 
 

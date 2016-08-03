@@ -50,10 +50,18 @@
         var that = this;
         this.inventory = inventory;
         this.totalPrice = totalPrice;
-        this.sortType = 'price';
-        this.sortReverse = false;
         this.newItem = {};
         this.addItem = addItem;
+        this.changeSorting = changeSorting;
+
+        this.sortType = 'price - discount';
+        this.sortReverse = false;
+
+        function changeSorting(sortType) {
+            that.sortType = sortType;
+            that.sortReverse = !that.sortReverse;
+            return that.sortReverse;
+        }
 
         /**
          * Adds a new item to inventory
@@ -76,7 +84,7 @@
             inventory.push(item);
             that.newItem = {};
             return item;
-        };
+        }
 
 
 
