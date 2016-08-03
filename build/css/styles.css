@@ -11,7 +11,7 @@ h1, main, footer {
   list-style: none; }
 
 input.ng-touched.ng-invalid {
-  background-color: #ff4d4d; }
+  background-color: #860000; }
 
 label {
   font-weight: bold; }
