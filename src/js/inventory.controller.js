@@ -43,40 +43,44 @@
         return (item.price - item.discount) * (1 + tax);
     }
 
-    var newItem = {};
-
-    /**
-     * Adds a new item to inventory
-     * @param  {Object}     item    contains details relevant to the inventory
-     * @return {Object}
-     */
-    function addItem(item) {
-        if(!item || !item.name || !item.quantity) {
-            return null;
-        }
-        if(!item.price) {
-            item.price = 0;
-        }
-        if(!item.discount) {
-            item.discount = 0;
-        }
-        if(!item.color) {
-            item.color = 'n/a';
-        }
-        inventory.push(item);
-        newItem = {};
-        return item;
-    }
-
     /**
      * A constructor function that creates a scope with various properties.
      */
     function InventoryController() {
+        var that = this;
         this.inventory = inventory;
         this.totalPrice = totalPrice;
-        this.addItem = addItem;
-        this.sortType = this.totalPrice;
+        this.sortType = 'price';
         this.sortReverse = false;
+        this.newItem = {};
+        this.addItem = addItem;
+
+        /**
+         * Adds a new item to inventory
+         * @param  {Object}     item    contains details relevant to the inventory
+         * @return {Object}
+         */
+        function addItem(item) {
+            if(!item || !item.name || !item.quantity) {
+                return null;
+            }
+            if(!item.price) {
+                item.price = 0;
+            }
+            if(!item.discount) {
+                item.discount = 0;
+            }
+            if(!item.color) {
+                item.color = 'n/a';
+            }
+            inventory.push(item);
+            that.newItem = {};
+            return item;
+        };
+
+
+
+
     }
 
 })();
