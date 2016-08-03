@@ -17,7 +17,9 @@
         this.totalPrice = totalPrice;
         this.inventory = HandleInventoryService.findAll();
         this.newItem = {};
-        this.addItem = HandleInventoryService.addItem();
+        this.addItem = function addItem(item) {
+            return HandleInventoryService.addItem(item);
+        };
 
 
         /**
