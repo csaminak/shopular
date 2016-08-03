@@ -60,14 +60,14 @@
                 <table class='inventory'>
                     <thead>
                         <tr>
-                            <th ng-click='orderByField="name"; reverseSort = !reverseSort'>Item</th>
-                            <th ng-click='orderByField="price"; reverseSort = !reverseSort'>Price</th>
-                            <th ng-click='orderByField="quantity"; reverseSort = !reverseSort'>Quantity</th>
-                            <th ng-click='orderByField="color"; reverseSort = !reverseSort'>Color</th>
+                            <th ng-click='sortBy("name")'>Item</th>
+                            <th ng-click='sortBy("price")'>Price</th>
+                            <th ng-click='sortBy("quantity")'>Quantity</th>
+                            <th>Color</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='item in stock.inventory | orderBy: orderByField:reverseSort'>
+                        <tr ng-repeat='item in stock.inventory | orderBy: stock.totalPrice'>
                             <td class='itemName'>
                                 <img ng-class='{sale: item.discount > 0}' ng-show='item.discount > 0' src='images/sale.png'>
                                 {{item.name}}

@@ -82,6 +82,8 @@
         this.inventory = inventory;
         this.totalPrice = totalPrice;
         this.addItem = addItem;
+        this.sortType = this.totalPrice;
+        this.sortReverse = false;
     }
 
 })();
