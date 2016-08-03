@@ -89,7 +89,6 @@
                     <tbody>
                         <tr ng-repeat='item in stock.inventory | orderBy: stock.sortType:stock.sortReverse'>
                             <td ng-class='{itemName: true, sale: item.discount > 0}'>
-                                <img ng-show='item.discount > 0' src='images/sale.png'>
                                 {{item.name}}
                             </td>
                             <td>
