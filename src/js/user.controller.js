@@ -7,7 +7,15 @@
     UserController.$inject = ['userMgmt'];
 
     function UserController(userMgmt) {
-        this.user = userMgmt;
+        var that = this;
+        this.login = login;
+        this.getUser = userMgmt.getUser;
+        this.newUser = {};
+
+        function login(user) {
+            that.newUser = userMgmt.login(user.username);
+            that.newUser = {};
+        }
     }
 
 

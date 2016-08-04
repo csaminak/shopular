@@ -145,7 +145,15 @@
     UserController.$inject = ['userMgmt'];
 
     function UserController(userMgmt) {
-        this.user = userMgmt;
+        var that = this;
+        this.login = login;
+        this.getUser = userMgmt.getUser;
+        this.newUser = {};
+
+        function login(user) {
+            that.newUser = userMgmt.login(user.username);
+            that.newUser = {};
+        }
     }
 
 
@@ -170,24 +178,22 @@
         };
     }
 
+    var user = null;
 
     function login(username) {
-        return {
+        if(!username) {
+            return;
+        }
+        user =  {
             'username': username,
             'time': new Date()
         };
+        return(user);
     }
 
-    function getUser(username) {
-        var theUser = null;
 
-        if(!username) {
-            return theUser;
-        } else {
-            theUser = username;
-        }
-
-        return theUser;
+    function getUser() {
+        return user;
     }
 
 

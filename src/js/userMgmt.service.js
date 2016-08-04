@@ -15,24 +15,22 @@
         };
     }
 
+    var user = null;
 
     function login(username) {
-        return {
+        if(!username) {
+            return;
+        }
+        user =  {
             'username': username,
             'time': new Date()
         };
+        return(user);
     }
 
-    function getUser(username) {
-        var theUser = null;
 
-        if(!username) {
-            return theUser;
-        } else {
-            theUser = username;
-        }
-
-        return theUser;
+    function getUser() {
+        return user;
     }
 
 

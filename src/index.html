@@ -14,6 +14,22 @@
 
         <header>
             <h1>Shopular Store Inventory</h1>
+
+            <section ng-cloak ng-controller='UserController as user'>
+                <form name='login' ng-submit='user.login(user.newUser)'>
+                    <label for=login>Login</label>
+                    <input name='username' id='login' placeholder='username' type='text'
+                                            ng-model='user.newUser.username'>
+                    <input type='submit' value='login'>
+                </form>
+                <h2>
+                    Username: {{user.getUser().username}}
+                </h2>
+                <p>
+                    Login Time: {{user.getUser().time | date: "MMM dd - h:mm a"}}
+                </p>
+            </section>
+
         </header>
 
         <main ng-cloak ng-controller='InventoryController as stock'>
