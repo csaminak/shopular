@@ -15,8 +15,7 @@
     function HandleInventoryService() {
         return {
             findAll: findAll,
-            addItem: addItem,
-            updateAll: updateAll
+            addItem: addItem
         };
     }
 
@@ -24,6 +23,10 @@
 
     var inventory;
 
+    /**
+     * Looks through localStorage and retrieves the data for inventory.
+     * @return {Array}     Array with objects that contain info for each item in inventory
+     */
     function findAll() {
         inventory = JSON.parse(localStorage.getItem('inventory'));
         return inventory;
@@ -57,15 +60,11 @@
             'color': item.color,
             'discount': item.discount
         };
+
         nextId++;
         inventory.push(newItem);
         localStorage.setItem('inventory', angular.toJson(inventory));
         return newItem;
-    }
-
-
-    function updateAll() {
-        console.log('update');
     }
 
 
