@@ -134,4 +134,38 @@
 
 })();
 
+(function() {
+    'use strict';
+
+    angular.module('shopular')
+        .controller('UserController', UserController);
+
+    UserController.$inject = ['userMgmt'];
+
+    function UserController(/*userMgmt*/) {
+
+    }
+
+
+
+
+})();
+
+(function(){
+    'use strict';
+
+    angular.module('shopular')
+        .factory('userMgmt', UserMgmtService);
+
+
+    function UserMgmtService() {
+        return {
+
+        };
+    }
+
+
+
+})();
+
 //# sourceMappingURL=main.js.map
