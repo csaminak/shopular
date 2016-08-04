@@ -28,7 +28,7 @@
          * @param {Object}  item   item to add into inventory with properties
          */
         function addItem(item) {
-            that.newItem = handleInventory.addItem(item);
+            handleInventory.addItem(item);
             that.newItem = {};
         }
 
