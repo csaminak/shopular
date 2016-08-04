@@ -4,7 +4,10 @@
     angular.module('shopular')
         .factory('handleInventory', HandleInventoryService);
 
-
+    /**
+     * Returns an object that contains function to handle inventory and it's items
+     * @return     {Object}    contains functions that the service can execute
+     */
     function HandleInventoryService() {
         return {
             findAll: findAll,
