@@ -10,15 +10,30 @@
      */
     function UserMgmtService() {
         return {
-            login: login
+            login: login,
+            getUser: getUser
         };
     }
 
-    function login() {
-        
+
+    function login(username) {
+        return {
+            'username': username,
+            'time': new Date()
+        };
     }
 
+    function getUser(username) {
+        var theUser = null;
 
+        if(!username) {
+            return theUser;
+        } else {
+            theUser = username;
+        }
+
+        return theUser;
+    }
 
 
 })();
