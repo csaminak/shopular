@@ -6,8 +6,8 @@
 
     UserController.$inject = ['userMgmt'];
 
-    function UserController(/*userMgmt*/) {
-
+    function UserController(userMgmt) {
+        this.user = userMgmt;
     }
 
 
