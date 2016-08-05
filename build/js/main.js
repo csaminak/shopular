@@ -23,16 +23,15 @@
     }
 
     var nextId = 17457;
-
-    var inventory;
+    var inventory = [];
 
     /**
      * Looks through localStorage and retrieves the data for inventory.
      * @return {Array}     Array with objects that contain info for each item in inventory
      */
     function findAll() {
-        inventory = JSON.parse(localStorage.getItem('inventory'));
-        return inventory;
+        //TODO TRY CATCH cause it is always needed with parsing
+        return JSON.parse(localStorage.getItem('inventory'));
     }
 
     /**
@@ -42,6 +41,9 @@
      * @return {Object}    newItem  contains relevant info including an id
      */
     function addItem(item) {
+        //TODO TRY CATCH cause it is always needed with parsing
+        JSON.parse(localStorage.getItem('inventory'));
+
         if(!item || !item.name || !item.price) {
             return null;
         }
@@ -105,7 +107,7 @@
          * @param {Object}  item   item to add into inventory with properties
          */
         function addItem(item) {
-            that.newItem = handleInventory.addItem(item);
+            handleInventory.addItem(item);
             that.newItem = {};
         }
 
@@ -151,7 +153,7 @@
         this.newUser = {};
 
         function login(user) {
-            that.newUser = userMgmt.login(user.username);
+            userMgmt.login(user.username);
             that.newUser = {};
         }
     }

@@ -13,7 +13,7 @@
         this.newUser = {};
 
         function login(user) {
-            that.newUser = userMgmt.login(user.username);
+            userMgmt.login(user.username);
             that.newUser = {};
         }
     }
