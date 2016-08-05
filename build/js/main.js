@@ -42,7 +42,6 @@
      */
     function addItem(item) {
         //TODO TRY CATCH cause it is always needed with parsing
-        JSON.parse(localStorage.getItem('inventory'));
 
         if(!item || !item.name || !item.price) {
             return null;
