@@ -16,15 +16,16 @@
     }
 
     var nextId = 17457;
-    var inventory = [];
+
+    var inventory;
 
     /**
      * Looks through localStorage and retrieves the data for inventory.
      * @return {Array}     Array with objects that contain info for each item in inventory
      */
     function findAll() {
-        //TODO TRY CATCH cause it is always needed with parsing
-        return JSON.parse(localStorage.getItem('inventory'));
+        inventory = JSON.parse(localStorage.getItem('inventory'));
+        return inventory;
     }
 
     /**
@@ -34,8 +35,6 @@
      * @return {Object}    newItem  contains relevant info including an id
      */
     function addItem(item) {
-        //TODO TRY CATCH cause it is always needed with parsing
-
         if(!item || !item.name || !item.price) {
             return null;
         }
@@ -63,8 +62,5 @@
         localStorage.setItem('inventory', angular.toJson(inventory));
         return newItem;
     }
-
-
-
 
 })();
